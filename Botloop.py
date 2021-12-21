@@ -8,6 +8,7 @@ import time
 spell = SpellChecker()
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.load_state_dict(torch.load('tut6-model.pt'))  # load in ze model
+model = model.to(device)
 
 
 def spellCheck(text):
@@ -107,6 +108,7 @@ while prompt_review:
             review = spellCheck(review)
             # Implement some functionality to input the review into the trained network
             result = predict_sentiment(model, tokenizer, listToString(review))
+            print(f'predict {result}')
 
             if result > 0.4 and result < 0.6:
                 repeat = True
