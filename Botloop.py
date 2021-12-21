@@ -38,7 +38,7 @@ def listToString(s):
 
 yes = ["yes", "yep", "fine", "okay", "okey", "ok", "affirmative", "yeah", "ye", "yeboi", "absolutely", "agreed", "all right", "alright", "assuredly", "aye", "beyond a doubt", "by all means", "certainly",
        "definitely", "gladly", "indubitably", "assuredly", "naturally", "of course", "ofcourse", "positively", "precisely", "sure", "surely", "undoubtedly", "unquestionably", "very well", "willingly"]
-no = ["no", "nay", "nix", "never", "not", "negative", "nah"]
+no = ["no", "nay", "nix", "never", "not", "negative", "nah", "nope", "stop"]
 
 
 def participation_analysis(text):
