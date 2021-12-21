@@ -113,10 +113,10 @@ while prompt_review:
                 review = input(random.choice(repeat_responses) + "\n")
 
             elif result > 0.6:
-                print(random.choice(positive))
+                print(random.choice(positive.replace("<TITLE>", movietitle)))
 
             else:
-                print(random.choice(negative))
+                print(random.choice(negative.replace("<TITLE>", movietitle)))
 
         yesno = participation_analysis(
             input(random.choice(participation_again) + "\n"))
