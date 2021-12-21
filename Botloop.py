@@ -17,9 +17,9 @@ def spellCheck(text):
     for word in misspelled:
         print(misspelled)
         print(
-            f'Sorry are you retarded the word "{word}" is not a word. Did you mean "{spell.candidates(word)}"?')
+            f'Sorry, I don't recognize the word "{word}". Did you mean "{spell.candidates(word)}"?')
         time.sleep(1)
-        new_word = input("Please correct you mistake\n")
+        new_word = input("Please type the correct word\n")
         text[text.index(word)] = new_word  # WORD?
     return text
 
@@ -38,9 +38,9 @@ def listToString(s):
     return (str1.join(s))
 
 
-yes = ["yes", "yep", "fine", "okay", "okey", "ok", "affirmative", "yeah", "absolutely", "agreed", "all right", "alright", "assuredly", "aye", "beyond a doubt", "by all means", "certainly",
+yes = ["yes", "yep", "fine", "okay", "okey", "ok", "affirmative", "yeah", "ye", "yeboi", "absolutely", "agreed", "all right", "alright", "assuredly", "aye", "beyond a doubt", "by all means", "certainly",
        "definitely", "gladly", "indubitably", "assuredly", "naturally", "of course", "ofcourse", "positively", "precisely", "sure", "surely", "undoubtedly", "unquestionably", "very well", "willingly"]
-no = ["no", "nay", "nix", "never", "not", "negative"]
+no = ["no", "nay", "nix", "never", "not", "negative", "nah", "nope"]
 
 
 def participation_analysis(text):
@@ -116,10 +116,10 @@ while prompt_review:
                 review = input(random.choice(repeat_responses) + "\n")
 
             elif result > 0.6:
-                print(random.choice(positive))
+                print(random.choice(positive.replace("<TITLE>", movietitle)))
 
             else:
-                print(random.choice(negative))
+                print(random.choice(negative.replace("<TITLE>", movietitle)))
 
         yesno = participation_analysis(
             input(random.choice(participation_again) + "\n"))
