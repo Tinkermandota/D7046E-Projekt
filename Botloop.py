@@ -15,9 +15,8 @@ def spellCheck(text):
     text = text.split(" ")
     misspelled = spell.unknown(text)
     for word in misspelled:
-        print(misspelled)
         print(
-            f'Sorry, I don't recognize the word "{word}". Did you mean "{spell.candidates(word)}"?')
+            f'Sorry, I don\'t recognize the word "{word}". Did you mean "{spell.candidates(word)}"?')
         time.sleep(1)
         new_word = input("Please type the correct word\n")
         text[text.index(word)] = new_word  # WORD?
@@ -99,6 +98,8 @@ while prompt_review:
         print(random.choice(affirmative))
         movietitle = input(random.choice(title_request) + "\n")
         review = input(random.choice(review_request) + "\n")
+        review = review.replace(movietitle + " ", "")
+        review = review.replace(" " + movietitle, "")
         repeat = True
 
         while repeat:
@@ -116,10 +117,10 @@ while prompt_review:
                 review = input(random.choice(repeat_responses) + "\n")
 
             elif result > 0.6:
-                print(random.choice(positive.replace("<TITLE>", movietitle)))
+                print(random.choice(positive).replace("<TITLE>", movietitle))
 
             else:
-                print(random.choice(negative.replace("<TITLE>", movietitle)))
+                print(random.choice(negative).replace("<TITLE>", movietitle))
 
         yesno = participation_analysis(
             input(random.choice(participation_again) + "\n"))
