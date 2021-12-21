@@ -94,6 +94,7 @@ unk_token_idx = tokenizer.convert_tokens_to_ids(unk_token)
 
 
 def predict_sentiment(model, tokenizer, sentence):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.eval()
     tokens = tokenizer.tokenize(sentence)
     tokens = tokens[:max_input_length-2]
