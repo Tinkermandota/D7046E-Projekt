@@ -70,7 +70,6 @@ repeat_responses = ["Please give it another try!", "You get another shot for the
                     "Please write the review again. I'm sure I will get it this time!", "Let's give the same movie another shot. Please be slightly more on point time, so I can properly analyze your review!", "You have to write the review again to give me a chance to guess it. Let's go!"]
 participation_confused = ["Please be clear"]
 
-
 print(random.choice(intro))
 yesno = participation_analysis(
     input(random.choice(participation_request) + "\n"))
@@ -116,7 +115,7 @@ while prompt_review:
                 print(random.choice(negative).replace("<TITLE>", movietitle))
 
         yesno = participation_analysis(
-            input(random.choice(participation_again) + "\n"))
+            input(random.choice(review_again) + "\n"))
     else:
         prompt_review = False
 print(random.choice(goodbye))
