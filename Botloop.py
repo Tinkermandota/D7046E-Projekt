@@ -15,9 +15,9 @@ def spellCheck(text):
     for word in misspelled:
         print(misspelled)
         print(
-            f'Sorry are you retarded the word "{word}" is not a word. Did you mean "{spell.candidates(word)}"?')
+            f'Sorry, I don't recognize the word "{word}". Did you mean "{spell.candidates(word)}"?')
         time.sleep(1)
-        new_word = input("Please correct you mistake\n")
+        new_word = input("Please type the correct word\n")
         text[text.index(word)] = new_word  # WORD?
     return text
 
