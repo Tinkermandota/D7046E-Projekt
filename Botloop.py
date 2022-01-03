@@ -7,7 +7,7 @@ import re
 import time
 spell = SpellChecker()
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.load_state_dict(torch.load('tut6-model.pt'))  # load in ze model
+model.load_state_dict(torch.load('model.pt'))  # load in ze model
 model = model.to(device)
 
 
