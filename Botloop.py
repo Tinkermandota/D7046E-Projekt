@@ -2,16 +2,26 @@ import random
 import torch
 import numpy as np
 from spellchecker import SpellChecker
-from Bertfjärt import predict_sentiment, model, tokenizer
+from model import predict_sentiment, model, tokenizer
 import re
 import time
+
 spell = SpellChecker()
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.load_state_dict(torch.load('model.pt'))  # load in ze model
+model.load_state_dict(torch.load('model.pt'))  # load in the model
 model = model.to(device)
 
 
+# Find and replace special charecters
+full_pattern = re.compile('[^a-zA-Z0-9\\\ ]|_')
+
+
+def re_replace(string):
+    return re.sub(full_pattern, '', string)
+
+
 def spellCheck(text):
+    text = re_replace(text)
     text = text.split(" ")
     misspelled = spell.unknown(text)
     for word in misspelled:
